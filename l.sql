@@ -9,6 +9,7 @@ col OWNER for a16
 col OBJECT_NAME for a32
 col TABLE_NAME for a32
 col INDEX_NAME for a32
+col PARTITION_NAME for a32
 col OBJECT_TYPE for a32
 col SEGMENT_NAME for a32
 col DIRECTORY_PATH for a64
