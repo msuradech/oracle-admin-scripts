@@ -28,8 +28,8 @@ column sql_child_number heading "Ch#" format 999
 --break on report
 --compute count of username on report
 
-break on username on status
-compute count of status on status
+--break on username on status
+--compute count of status on status
 
 column f1       format a60
 select  'DATABASE => '||name||'    DATE => '||rtrim(to_char(sysdate,'DD MONTH YYYY hh24:mi:ss')) f1
@@ -65,4 +65,4 @@ AND ((ss.username is not null ) )
 order by username,status,ss.sid||','||ss.serial#
 ;
 set feedback on
-clear breaks
+--clear breaks
