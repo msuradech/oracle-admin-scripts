@@ -11,8 +11,7 @@ from dba_objects
 where lower(object_name) like lower('%&1%')
 and lower(object_type) like lower('%&2%')
 and object_name not like '%/%'
-order by 1,2,3
-/
+order by 1,2,3;
 
 
 
