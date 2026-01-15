@@ -24,5 +24,4 @@ select
         l.FIRST_TIME
 from v$standby_log l, v$logfile lf
 where l.group# = lf.group#
-order by group#, member
-/
+order by group#, member;

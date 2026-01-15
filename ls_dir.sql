@@ -1,2 +1,1 @@
-select * from dba_directories
-/
+select * from dba_directories;

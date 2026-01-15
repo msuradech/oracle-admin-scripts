@@ -15,7 +15,6 @@ b.creation_time, a.AUTOEXTENSIBLE,
 from dba_temp_files a, v$datafile b
 where a.file_id = b.file#
 and a.TABLESPACE_NAME = '&1'
-order by a.FILE_NAME
-/
+order by a.FILE_NAME;
 
 set verify on

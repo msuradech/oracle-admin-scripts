@@ -9,5 +9,4 @@ select
         job_type,
         ENABLED
 from DBA_SCHEDULER_JOBS
-order by owner, SCHEDULE_NAME, job_name
-/
+order by owner, SCHEDULE_NAME, job_name;

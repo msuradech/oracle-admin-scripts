@@ -17,6 +17,4 @@ from gv$sql
 where sql_id='&&sqlid'
 order by INST_ID, SQL_ID, CHILD_NUMBER;
 
-
-
 set verify on

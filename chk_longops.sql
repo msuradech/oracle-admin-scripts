@@ -32,6 +32,4 @@ from v$session_longops
 where sid=&&sess_id
 --where sid=547
 and sofar!=0
-order by START_TIME
-/
-
+order by START_TIME;

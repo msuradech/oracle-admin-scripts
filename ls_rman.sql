@@ -16,5 +16,4 @@ select recid||'/'||parent_recid||'/'||row_level as "recid/parent/rlevel",
         start_time, end_time,
         to_char(input_bytes/1024/1024,'999,999.99') || '/' || to_char(output_bytes/1024/1024,'999,999.99') "input/output mbytes"
 from v$rman_status
-order by recid
-/
+order by recid;

@@ -15,5 +15,4 @@ select
 	ELAPSED_TIME,
 	CPU_USED
 from DBA_SCHEDULER_RUNNING_JOBS
-order by SID
-/
+order by SID;

@@ -20,5 +20,4 @@ select a.recid||'/'||a.parent_recid||'/'||a.row_level as "recid/parent/rlevel",
 	to_char(a.output_bytes/1024/1024/1024,'99,999.99') "input/output gbytes"
 from v$rman_status a
 where a.OBJECT_TYPE='DB INCR'
-order by a.recid
-/
+order by a.recid;

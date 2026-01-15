@@ -26,5 +26,4 @@ select
 from
  DBA_SCHEDULER_JOB_RUN_DETAILS
 where job_name='&job_name'
-order by LOG_ID
-/
+order by LOG_ID;

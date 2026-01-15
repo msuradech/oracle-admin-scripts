@@ -21,5 +21,4 @@ select
 from DBA_AUDIT_TRAIL
 where TIMESTAMP > sysdate-1/24
 and action not in (100,101,102)
-order by TIMESTAMP
-/
+order by TIMESTAMP;

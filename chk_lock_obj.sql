@@ -8,7 +8,7 @@ col SESSION for a14
 
 
 select
-	a.inst_id,
+   a.inst_id,
    c.owner,
    c.object_name,
    c.object_type,
