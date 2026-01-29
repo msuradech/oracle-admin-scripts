@@ -16,11 +16,12 @@ set feedback off
 set heading off
 set verify off
 select
-max(case when name='memory_target' then value end) || '|' ||
-max(case when name='sga_target' then value end) || '|' ||
-max(case when name='pga_aggregate_target' then value end)
-from v\$parameter
-where name in ('memory_target','sga_target','pga_aggregate_target');
+  (select value from v\$parameter where name='memory_target') || '|' ||
+  (select value from v\$parameter where name='sga_target') || '|' ||
+  (select value from v\$parameter where name='pga_aggregate_target') || '|' ||
+  round((select sum(bytes) from cdb_data_files)/1024/1024/1024,2) || '|' ||
+  round((select sum(bytes) from cdb_temp_files)/1024/1024/1024,2)
+from dual;
 exit;
 EOF
 )
