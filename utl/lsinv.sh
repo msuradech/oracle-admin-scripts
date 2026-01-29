@@ -5,6 +5,11 @@ v_cpumodel=`lscpu | awk -F: '/Model name/ {print $2}' | xargs`
 v_cpunum=`lscpu | awk -F: '/^CPU\(s\):/ {print $2}' | xargs`
 v_memsize=`lsmem | awk -F: '/Total online memory/ {print $2}' | xargs`
 
+# ===== header mode =====
+if [ "$1" = "header" ]; then
+  echo "HOST|CPU_MODEL|CPU_NUM|MEM_SIZE|DB_NAME|MEMORY_TARGET|SGA_TARGET|PGA_TARGET|DB_SIZE_GB|TEMP_SIZE_GB"
+fi
+
 ps -ef | grep ora_pmon | grep -v grep | awk '{print $8}' | while read pmon
 do
 	v_instname=$(echo $pmon | awk -F_ '{print $3}')
