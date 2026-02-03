@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#########################################################
+# note** for Oracle 19c or later
+
 v_host=`hostname`
 v_cpumodel=`lscpu | awk -F: '/Model name/ {print $2}' | xargs`
 v_cpunum=`lscpu | awk -F: '/^CPU\(s\):/ {print $2}' | xargs`
