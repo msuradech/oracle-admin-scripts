@@ -10,7 +10,7 @@ v_memsize=`lsmem | awk -F: '/Total online memory/ {print $2}' | xargs`
 
 # ===== header mode =====
 if [ "$1" = "header" ]; then
-  echo "HOST|CPU_MODEL|CPU_NUM|MEM_SIZE|DB_NAME|MEMORY_TARGET|SGA_TARGET|PGA_TARGET|DB_SIZE_GB|TEMP_SIZE_GB"
+  echo "HOST|CPU_MODEL|CPU_NUM|MEM_SIZE|DB_NAME|INST_NAME|VERSION|EDITION|CDB|MEMORY_TARGET|SGA_TARGET|PGA_TARGET|DB_SIZE_GB|TEMP_SIZE_GB"
 fi
 
 ps -ef | grep ora_pmon | grep -v grep | awk '{print $8}' | while read pmon
@@ -24,6 +24,11 @@ set feedback off
 set heading off
 set verify off
 select
+  (select name from v\$database) || '|' ||
+  (select instance_name from v\$instance) || '|' ||
+  (select version from v\$instance) || '|' ||
+  (select edition from v\$instance) || '|' ||
+  (select cdb from v\$database) || '|' ||
   (select value from v\$parameter where name='memory_target') || '|' ||
   (select value from v\$parameter where name='sga_target') || '|' ||
   (select value from v\$parameter where name='pga_aggregate_target') || '|' ||
@@ -34,5 +39,5 @@ exit;
 EOF
 )
 	
-	echo "${v_host}|${v_cpumodel}|${v_cpunum}|${v_memsize}|${v_instname}|${dbinfo}"
+	echo "${v_host}|${v_cpumodel}|${v_cpunum}|${v_memsize}|${dbinfo}"
 done
