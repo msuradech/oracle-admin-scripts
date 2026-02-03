@@ -15,7 +15,7 @@ fi
 
 ps -ef | grep ora_pmon | grep -v grep | awk '{print $8}' | while read pmon
 do
-	v_instname=$(echo $pmon | awk -F_ '{print $3}')
+	v_instname=$(echo $pmon | sed 's/^ora_pmon_//')
 	export ORACLE_SID=$v_instname
 	
 	dbinfo=$(sqlplus -s / as sysdba <<EOF
