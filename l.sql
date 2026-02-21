@@ -23,7 +23,6 @@ col RESOURCE_NAME for a24
 
 
 
-
 COLUMN name_col_plus_show_param FORMAT a30
 COLUMN value_col_plus_show_param FORMAT a72
 
