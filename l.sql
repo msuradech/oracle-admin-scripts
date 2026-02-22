@@ -7,6 +7,7 @@ col SPID for a12
 col USERNAME for a16
 col OWNER for a16
 col TABLE_OWNER for a16
+col INDEX_OWNER for a16
 col OBJECT_NAME for a32
 col TABLE_NAME for a32
 col INDEX_NAME for a32
