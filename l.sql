@@ -38,7 +38,6 @@ select INSTANCE_NAME, HOST_NAME, STARTUP_TIME, STATUS, ARCHIVER
 from v$instance;
 
 
-
 select a.INST_ID, trim(a.SID) sessid, a.SERIAL#, b.SPID, a.USERNAME, a.OSUSER, a.LOGON_TIME
 from gv$session a, gv$process b
 where a.PADDR = b.ADDR
